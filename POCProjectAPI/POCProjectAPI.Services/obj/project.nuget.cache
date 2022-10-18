@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xv/tJB/3BwLSLd/4gAbfwY7Jk3mwOq6FAWoXOqP+KhExxv212KDqX1OUtZoHDqGSd7Vd5zX94mxHGZOYrdcHow==",
+  "success": true,
+  "projectFilePath": "C:\\Meus Projetos\\POCProjectAPI\\POCProjectAPI.Services\\POCProjectAPI.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LucasRamosdaCostaPes\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\LucasRamosdaCostaPes\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

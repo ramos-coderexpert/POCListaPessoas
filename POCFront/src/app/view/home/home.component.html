@@ -1,0 +1,81 @@
+<div class="container">
+  <button mat-button color="primary" (click)="openDialog(null)">
+    Add Pessoa
+  </button>
+  <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="pessoaId">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.pessoaId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef>Idade</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.idade }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sexo">
+      <th mat-header-cell *matHeaderCellDef>Sexo</th>
+      <td mat-cell *matCellDef="let pessoa">{{ pessoa.sexo }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let pessoa">
+        <button mat-icon-button (click)="editPessoa(pessoa)" color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          (click)="deletePessoa(pessoa.pessoaId)"
+          color="primary"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<div class="chat">
+  <span>SignalR Chat</span>
+  <div class="messages">
+    <ng-template ngFor let-message [ngForOf]="messages" let-i="index">
+      <div *ngIf="message.userName == userName" class="message-line me">
+        <div class="message me">
+          <div class="user-name me">{{ message.userName }}</div>
+          <div>{{ message.text }}</div>
+        </div>
+      </div>
+      <div *ngIf="message.userName != userName" class="message-line other">
+        <div class="message other">
+          <div class="user-name other">{{ message.userName }}</div>
+          <div>{{ message.text }}</div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div>
+    <form class="form">
+      <mat-form-field>
+        <mat-label>Escreva sua mensagem</mat-label>
+        <input matInput placeholder="Olá" [formControl]="messageControl" />
+      </mat-form-field>
+      <button
+        (click)="sendMessage()"
+        color="primary"
+        mat-mini-fab
+        aria-label="Enviar"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+    </form>
+  </div>
+</div>
